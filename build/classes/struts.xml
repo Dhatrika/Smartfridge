@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+  	<package name="default" extends="struts-default">
+    		<action name="login" class="loginWeb">
+      			<result name="success">/configure.jsp</result>
+      			<result name="error">/Error.jsp</result>
+    		</action>
+    		
+    		<action name="internalLoginRedirect" class="loginWeb" method="internalLoginRedirect">
+      			<result name="success">/configure.jsp</result>
+      			<result name="error">/Error.jsp</result>
+    		</action>
+    		
+    		<action name="home" class="homeWeb">
+      			<result name="success">/login.jsp</result>
+    		</action>
+    		
+    		<action name="configure" class="configureWeb">
+      			<result name="minmax">/minmax.jsp</result>
+      			<result name="additems">/additems.jsp</result>
+      			<result name="consumeitems">/consumeitems.jsp</result>
+      			<result name="resetpassword">/resetPassword.jsp</result>
+      			<result name="configuremail">/resetEmail.jsp</result>
+      			<result name="shoppinglist">/shoppingList.jsp</result>
+      			<result name="statusitems">/statusitems.jsp</result>
+      			<result name="logoff">/login.jsp</result>
+      			<result name="error">/error1.jsp</result>
+    		</action>
+    		
+    		 <action name="saveConfigure" class="configureWeb" method="saveConfigure">
+      			<result name="reloadMinMax" type="redirect">configure.action?configureValue=minmax&amp;showSuccessMessage=Yes</result>
+      			<result name="error">/error1.jsp</result>
+    		</action>
+    		
+    		 <action name="saveAddItems" class="configureWeb" method="saveAddItems">
+      			<result name="reloadAddItems" type="redirect">configure.action?configureValue=additems&amp;showSuccessMessage=Yes</result>
+      			<result name="error">/error1.jsp</result>
+    		</action>
+    		
+    		 <action name="saveConsumeItems" class="configureWeb" method="saveConsumeItems">
+      			<result name="reloadAddItems" type="redirect">configure.action?configureValue=consumeitems&amp;showSuccessMessage=Yes</result>
+      			<result name="error">/error1.jsp</result>
+    		</action>  
+    		
+    		<action name="savePassword" class="configureWeb" method="savePassword">
+      			<result name="reloadPassword" type="redirect">configure.action?configureValue=resetpassword&amp;showSuccessMessage=Yes</result>
+      			<result name="error">/error1.jsp</result>
+    		</action> 
+    		
+    		<action name="saveEmail" class="configureWeb" method="saveEmail">
+      			<result name="reloadEmail" type="redirect">configure.action?configureValue=configuremail&amp;showSuccessMessage=Yes</result>
+      			<result name="error">/error1.jsp</result>
+    		</action>  
+    		
+    		<action name="sendShoppingList" class="configureWeb" method="sendShoppingList">
+      			<result name="reloadPrintShopList" type="redirect">configure.action?configureValue=shoppinglist&amp;showSuccessMessage=Print</result>
+      			<result name="reloadOrderShopList" type="redirect">configure.action?configureValue=shoppinglist&amp;showSuccessMessage=Order</result>
+      			<result name="error">/error1.jsp</result>
+    		</action>
+    			
+  	</package>
+
+</struts>
